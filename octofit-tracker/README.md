@@ -1,4 +1,4 @@
-# 🐙 OctoFit Tracker
+# OctoFit Tracker
 
 A modern multi-tier fitness tracking application built with GitHub Copilot Agent Mode.
 
@@ -8,7 +8,13 @@ A modern multi-tier fitness tracking application built with GitHub Copilot Agent
 - **Backend**: Node.js + Express + TypeScript (Port 8000)
 - **Database**: MongoDB (Port 27017)
 
-## Quick Start
+## Setup Instructions
+
+### Prerequisites
+
+- Node.js 18+
+- MongoDB running locally or accessible
+- npm or yarn
 
 ### Frontend Setup
 
@@ -31,16 +37,31 @@ npm run dev
 
 The backend will be available at `http://localhost:8000`
 
-### Database Setup
+### MongoDB Setup
 
-Make sure MongoDB is running on port 27017:
+Ensure MongoDB is running on `localhost:27017` or update the `MONGODB_URI` in `.env`
 
+## Available Endpoints
+
+- `GET /health` - Health check endpoint
+- More endpoints coming soon...
+
+## Development
+
+- Frontend: Run `npm run dev` in the frontend directory
+- Backend: Run `npm run dev` in the backend directory
+
+## Building for Production
+
+### Frontend
 ```bash
-# Using Docker (recommended)
-docker run -d -p 27017:27017 --name mongodb mongo:latest
+npm run build
+```
 
-# Or using local MongoDB installation
-mongod --port 27017
+### Backend
+```bash
+npm run build
+npm start
 ```
 
 ## Project Structure
@@ -49,39 +70,12 @@ mongod --port 27017
 octofit-tracker/
 ├── frontend/
 │   ├── src/
-│   │   ├── main.jsx
-│   │   ├── App.jsx
-│   │   └── App.css
 │   ├── package.json
 │   ├── vite.config.js
 │   └── index.html
-├── backend/
-│   ├── src/
-│   │   └── index.ts
-│   ├── package.json
-│   ├── tsconfig.json
-│   └── .env.example
-└── README.md
+└── backend/
+    ├── src/
+    ├── package.json
+    ├── tsconfig.json
+    └── .env.example
 ```
-
-## Development
-
-- Frontend runs with hot module replacement for instant feedback
-- Backend runs with tsx watch for TypeScript development
-- MongoDB serves as the persistent data layer
-
-## Features
-
-- React 19 with modern hooks
-- TypeScript for type-safe backend development
-- Express.js RESTful API
-- MongoDB with Mongoose ODM
-- CORS-enabled for cross-origin requests
-- Environment-based configuration
-
-## Next Steps
-
-1. Define MongoDB schemas with Mongoose
-2. Create API endpoints for fitness tracking
-3. Build React components for the dashboard
-4. Integrate frontend and backend communication
